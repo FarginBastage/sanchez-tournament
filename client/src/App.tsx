@@ -2,6 +2,7 @@ import { Switch, Route, Router, Link, useLocation } from "wouter";
 import { useHashLocation } from "wouter/use-hash-location";
 
 import TodayPage from "./pages/TodayPage";
+import SplashPage from "./pages/SplashPage";
 import CalendarPage from "./pages/CalendarPage";
 import ComparisonPage from "./pages/ComparisonPage";
 import ChatPage from "./pages/ChatPage";
@@ -114,7 +115,7 @@ function Sidebar({ dark, setDark }: { dark: boolean; setDark: (v: boolean) => vo
           Power Level: Over 9000 🔥
         </div>
         <div className="text-[10px] text-muted-foreground text-center opacity-30 italic">
-          A Fargin Bastage Production
+          <Link href="/splash" className="hover:text-amber-300 transition-colors">A Fargin Bastage Production</Link>
         </div>
       </div>
     </aside>
@@ -122,7 +123,7 @@ function Sidebar({ dark, setDark }: { dark: boolean; setDark: (v: boolean) => vo
 }
 
 export default function App() {
-  const [dark, setDark] = useState(true); // default dark — DBZ feels right dark
+  const [dark, setDark] = useState(true);
 
   useEffect(() => {
     if (dark) {
@@ -154,6 +155,7 @@ export default function App() {
           <Sidebar dark={dark} setDark={setDark} />
           <main className="md:ml-64 pb-20 md:pb-0 min-h-screen">
             <Switch>
+              <Route path="/splash"     component={SplashPage}           />
               <Route path="/"           component={TodayPage}            />
               <Route path="/calendar"   component={CalendarPage}         />
               <Route path="/comparison" component={ComparisonPage}       />
