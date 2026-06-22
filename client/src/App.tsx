@@ -124,6 +124,15 @@ function Sidebar({ dark, setDark }: { dark: boolean; setDark: (v: boolean) => vo
 
 export default function App() {
   const [dark, setDark] = useState(true);
+  // Show splash on first visit per browser session
+  const [showSplash, setShowSplash] = useState(
+    () => !sessionStorage.getItem("splashSeen")
+  );
+
+  function handleSplashDone() {
+    sessionStorage.setItem("splashSeen", "1");
+    setShowSplash(false);
+  }
 
   useEffect(() => {
     if (dark) {
@@ -155,7 +164,7 @@ export default function App() {
           <Sidebar dark={dark} setDark={setDark} />
           <main className="md:ml-64 pb-20 md:pb-0 min-h-screen">
             <Switch>
-              <Route path="/splash"     component={SplashPage}           />
+              <Route path="/splash" component={() => <SplashPage onDone={handleSplashDone} />} />
               <Route path="/"           component={TodayPage}            />
               <Route path="/calendar"   component={CalendarPage}         />
               <Route path="/comparison" component={ComparisonPage}       />
@@ -166,6 +175,8 @@ export default function App() {
           </main>
           <Nav />
         </div>
+        {/* Auto-show splash overlay on first load */}
+        {showSplash && <SplashPage onDone={handleSplashDone} />}
       </Router>
     </DarkContext.Provider>
   );

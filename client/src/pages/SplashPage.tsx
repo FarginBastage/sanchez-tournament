@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "wouter";
 
-export default function SplashPage() {
-  const [, navigate] = useLocation();
+interface SplashPageProps {
+  onDone?: () => void; // called when user taps or auto-dismiss fires
+}
+
+export default function SplashPage({ onDone }: SplashPageProps) {
   const [phase, setPhase] = useState<"intro" | "title" | "ready">("intro");
+  const [exiting, setExiting] = useState(false);
 
   // Animation sequence
   useEffect(() => {
@@ -12,11 +15,21 @@ export default function SplashPage() {
     return () => { clearTimeout(t1); clearTimeout(t2); };
   }, []);
 
+  function dismiss() {
+    if (exiting) return;
+    setExiting(true);
+    setTimeout(() => onDone?.(), 600); // wait for fade-out
+  }
+
   return (
     <div
       className="fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden cursor-pointer select-none"
-      style={{ background: "radial-gradient(ellipse at 50% 60%, #0a0a2e 0%, #000005 100%)" }}
-      onClick={() => navigate("/")}
+      style={{
+        background: "radial-gradient(ellipse at 50% 60%, #0a0a2e 0%, #000005 100%)",
+        opacity: exiting ? 0 : 1,
+        transition: "opacity 0.6s ease-out",
+      }}
+      onClick={dismiss}
     >
       {/* Starfield */}
       <Stars />
@@ -78,7 +91,7 @@ export default function SplashPage() {
           }}
         >
           <div className="text-xs font-black tracking-[0.4em] uppercase text-amber-400/70 mb-1">
-            Created & Commanded by
+            Created &amp; Commanded by
           </div>
           <div className="text-3xl font-black tracking-wide text-white"
             style={{ textShadow: "0 0 20px rgba(77,144,254,0.8), 0 2px 4px rgba(0,0,0,0.8)" }}>
@@ -101,10 +114,11 @@ export default function SplashPage() {
 
         {/* Main title */}
         <div
-          className="transition-all duration-700 delay-[400ms]"
+          className="transition-all duration-700"
           style={{
             opacity: phase === "intro" ? 0 : 1,
             transform: phase === "intro" ? "scale(0.92)" : "scale(1)",
+            transitionDelay: "400ms",
           }}
         >
           <div
@@ -114,7 +128,6 @@ export default function SplashPage() {
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
-              textShadow: "none",
               filter: "drop-shadow(0 0 20px rgba(251,191,36,0.5))",
             }}
           >
@@ -130,10 +143,11 @@ export default function SplashPage() {
 
         {/* Production credit */}
         <div
-          className="transition-all duration-700 delay-500"
+          className="transition-all duration-700"
           style={{
             opacity: phase === "intro" ? 0 : 1,
             transform: phase === "intro" ? "translateY(8px)" : "translateY(0)",
+            transitionDelay: "500ms",
           }}
         >
           <div className="text-xs tracking-widest uppercase text-white/30 mb-0.5">presented by</div>
