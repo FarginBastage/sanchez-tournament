@@ -113,9 +113,22 @@ export const WEEK_B: WeekSchedule = {
 };
 
 export function getWeekRotation(date: Date): WeekRotation {
-  // Use ISO week number: even weeks = A, odd weeks = B
-  const startOfYear = new Date(date.getFullYear(), 0, 1);
-  const weekNum = Math.ceil(((date.getTime() - startOfYear.getTime()) / 86400000 + startOfYear.getDay() + 1) / 7);
+  // Anchor to the Monday of the given date's ISO week so the result is
+  // identical for every day in the same Mon–Sun week.
+  const monday = new Date(date);
+  const dow = date.getDay(); // 0=Sun, 1=Mon … 6=Sat
+  const diff = dow === 0 ? -6 : 1 - dow; // shift back to Monday
+  monday.setDate(date.getDate() + diff);
+  monday.setHours(0, 0, 0, 0);
+
+  // ISO week number of that Monday
+  const jan4 = new Date(monday.getFullYear(), 0, 4); // Jan 4 is always in week 1
+  const jan4Monday = new Date(jan4);
+  const jan4Dow = jan4.getDay();
+  jan4Monday.setDate(jan4.getDate() + (jan4Dow === 0 ? -6 : 1 - jan4Dow));
+  jan4Monday.setHours(0, 0, 0, 0);
+
+  const weekNum = Math.round((monday.getTime() - jan4Monday.getTime()) / (7 * 86400000)) + 1;
   return weekNum % 2 === 0 ? "A" : "B";
 }
 
