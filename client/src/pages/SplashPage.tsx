@@ -73,8 +73,8 @@ export default function SplashPage({ onDone }: SplashPageProps) {
             <img
               src="jesse-roshi.jpeg"
               alt="Jesse — Master Roshi, The Turtle Hermit"
-              className="w-full h-full object-cover object-top"
-              style={{ filter: "contrast(1.1) saturate(1.1)" }}
+              className="w-full h-full object-cover"
+              style={{ filter: "contrast(1.1) saturate(1.1)", objectPosition: "center 35%" }}
             />
             {/* Warm orange tint overlay */}
             <div className="absolute inset-0 mix-blend-color"

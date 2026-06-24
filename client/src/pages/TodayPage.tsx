@@ -544,7 +544,8 @@ export default function TodayPage() {
                         <img
                           src={MEMBER_PHOTOS[member.name.toLowerCase()]}
                           alt={member.name}
-                          className="w-full h-full object-cover object-top"
+                          className="w-full h-full object-cover"
+                          style={{ objectPosition: "center 25%" }}
                         />
                       </div>
                     ) : (
