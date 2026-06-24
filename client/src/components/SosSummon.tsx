@@ -137,7 +137,7 @@ export function SosSummon({ members }: SosSummonProps) {
   }
 
   const CHAR_COLORS: Record<string, string> = {
-    vegeta: "#1565c0", goku: "#f57f17", gohan: "#2e7d32", bulma: "#7b1fa2",
+    roshi:  "#e65100", goku: "#f57f17", gohan: "#2e7d32", bulma: "#7b1fa2",
   };
 
   return (

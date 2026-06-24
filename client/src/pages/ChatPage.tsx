@@ -5,11 +5,11 @@ import type { Member, Message } from "@shared/schema";
 import { Send } from "lucide-react";
 
 const MEMBER_COLORS: Record<string, string> = {
-  vegeta: "#1565c0", goku: "#f57f17", gohan: "#2e7d32", bulma: "#7b1fa2"
+  roshi:  "#e65100", goku: "#f57f17", gohan: "#2e7d32", bulma: "#7b1fa2"
 };
 
 const CHAR_BG: Record<string, string> = {
-  vegeta: "bg-blue-900", goku: "bg-amber-800", gohan: "bg-green-900", bulma: "bg-purple-900"
+  roshi:  "bg-orange-900", goku: "bg-amber-800", gohan: "bg-green-900", bulma: "bg-purple-900"
 };
 
 export default function ChatPage() {

@@ -12,14 +12,14 @@ import { showNotification, getNotificationPermission, requestNotificationPermiss
 import { fireConfetti } from "../lib/confetti";
 
 const CHAR_STYLES: Record<string, { headerClass: string; text: string; border: string; accent: string; glow: string }> = {
-  vegeta: { headerClass: "char-header-vegeta", text: "text-blue-100",   border: "border-blue-500/60",   accent: "#4d90fe", glow: "rgba(77,144,254,0.35)" },
+  roshi:  { headerClass: "char-header-roshi",  text: "text-orange-100", border: "border-orange-500/60", accent: "#ff6d00", glow: "rgba(255,109,0,0.35)" },
   goku:   { headerClass: "char-header-goku",   text: "text-amber-100",  border: "border-amber-400/60",  accent: "#ffa726", glow: "rgba(255,167,38,0.35)" },
   gohan:  { headerClass: "char-header-gohan",  text: "text-green-100",  border: "border-green-400/60",  accent: "#66bb6a", glow: "rgba(102,187,106,0.35)" },
   bulma:  { headerClass: "char-header-bulma",  text: "text-purple-100", border: "border-purple-400/60", accent: "#ce93d8", glow: "rgba(206,147,216,0.35)" },
 };
 
 const CHARACTER_TITLES: Record<string, string> = {
-  vegeta: "Prince of All Saiyans",
+  roshi:  "The Turtle Hermit",
   goku:   "Low-Class Warrior",
   gohan:  "The Scholar",
   bulma:  "Genius Inventor",

@@ -40,7 +40,7 @@ export default function SplashPage({ onDone }: SplashPageProps) {
       {/* Main content */}
       <div className="relative z-10 flex flex-col items-center gap-6 px-6 text-center">
 
-        {/* Photo — Vegeta-style power portrait */}
+        {/* Photo — Master Roshi power portrait */}
         <div
           className="relative transition-all duration-700"
           style={{
@@ -51,7 +51,7 @@ export default function SplashPage({ onDone }: SplashPageProps) {
           {/* Aura rings */}
           <div className="absolute inset-0 rounded-full"
             style={{
-              background: "radial-gradient(ellipse, rgba(77,144,254,0.35) 0%, transparent 70%)",
+              background: "radial-gradient(ellipse, rgba(255,109,0,0.35) 0%, transparent 70%)",
               transform: "scale(1.6)",
               animation: "pulse-aura 2.4s ease-in-out infinite",
             }} />
@@ -68,17 +68,17 @@ export default function SplashPage({ onDone }: SplashPageProps) {
               width: 180,
               height: 180,
               border: "3px solid #fbbf24",
-              boxShadow: "0 0 0 2px #1565c0, 0 0 40px rgba(251,191,36,0.5), 0 0 80px rgba(77,144,254,0.3)",
+              boxShadow: "0 0 0 2px #e65100, 0 0 40px rgba(251,191,36,0.5), 0 0 80px rgba(255,109,0,0.4)",
             }}>
             <img
               src="/jesse.jpeg"
-              alt="Jesse — Vegeta, Prince of All Saiyans"
+              alt="Jesse — Master Roshi, The Turtle Hermit"
               className="w-full h-full object-cover object-top"
               style={{ filter: "contrast(1.1) saturate(1.1)" }}
             />
-            {/* Blue power tint overlay */}
+            {/* Warm orange tint overlay */}
             <div className="absolute inset-0 mix-blend-color"
-              style={{ background: "rgba(21,101,192,0.15)" }} />
+              style={{ background: "rgba(230,81,0,0.10)" }} />
           </div>
         </div>
 
@@ -94,12 +94,12 @@ export default function SplashPage({ onDone }: SplashPageProps) {
             Created &amp; Commanded by
           </div>
           <div className="text-3xl font-black tracking-wide text-white"
-            style={{ textShadow: "0 0 20px rgba(77,144,254,0.8), 0 2px 4px rgba(0,0,0,0.8)" }}>
+            style={{ textShadow: "0 0 20px rgba(255,109,0,0.8), 0 2px 4px rgba(0,0,0,0.8)" }}>
             Jesse Sanchez
           </div>
-          <div className="text-sm font-bold tracking-widest text-blue-400 mt-1"
-            style={{ textShadow: "0 0 12px rgba(77,144,254,0.6)" }}>
-            👑 VEGETA — PRINCE OF ALL SAIYANS
+          <div className="text-sm font-bold tracking-widest text-orange-400 mt-1"
+            style={{ textShadow: "0 0 12px rgba(255,109,0,0.6)" }}>
+            🐢 MASTER ROSHI — THE TURTLE HERMIT
           </div>
         </div>
 

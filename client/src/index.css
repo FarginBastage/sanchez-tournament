@@ -207,9 +207,9 @@
 }
 
 /* Character card header gradient overlays */
-.char-header-vegeta {
-  background: linear-gradient(135deg, #0d1b4b 0%, #1a2d6e 60%, #0d47a1 100%);
-  border-bottom: 2px solid rgba(100, 149, 237, 0.6);
+.char-header-roshi {
+  background: linear-gradient(135deg, #1a0a00 0%, #3e1a00 60%, #bf360c 100%);
+  border-bottom: 2px solid rgba(255, 109, 0, 0.6);
 }
 .char-header-goku {
   background: linear-gradient(135deg, #2d1600 0%, #4a2200 60%, #f57f17 100%);

@@ -6,7 +6,7 @@ import type { Member, ChoreOverride } from "@shared/schema";
 import { Plus, Trash2, RotateCcw, Settings, ChevronDown } from "lucide-react";
 
 const MEMBER_COLORS: Record<string, string> = {
-  vegeta: "#1565c0", goku: "#f57f17", gohan: "#2e7d32", bulma: "#7b1fa2",
+  roshi:  "#e65100", goku: "#f57f17", gohan: "#2e7d32", bulma: "#7b1fa2",
 };
 
 export default function SettingsPage() {

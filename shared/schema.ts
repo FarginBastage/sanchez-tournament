@@ -6,7 +6,7 @@ import { z } from "zod";
 export const members = sqliteTable("members", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   name: text("name").notNull(),
-  character: text("character").notNull(), // vegeta, goku, gohan, bulma
+  character: text("character").notNull(), // roshi, goku, gohan, bulma
   color: text("color").notNull(),
   emoji: text("emoji").notNull(),
 });

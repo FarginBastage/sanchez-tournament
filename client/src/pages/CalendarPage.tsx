@@ -16,14 +16,14 @@ function getWeekStart(d: Date): Date {
 }
 
 const CHAR_STYLES: Record<string, { accent: string; header: string; glow: string }> = {
-  vegeta: { accent: "#4d90fe", header: "char-header-vegeta", glow: "rgba(77,144,254,0.3)" },
+  roshi:  { accent: "#ff6d00", header: "char-header-roshi",  glow: "rgba(255,109,0,0.3)" },
   goku:   { accent: "#ffa726", header: "char-header-goku",   glow: "rgba(255,167,38,0.3)" },
   gohan:  { accent: "#66bb6a", header: "char-header-gohan",  glow: "rgba(102,187,106,0.3)" },
   bulma:  { accent: "#ce93d8", header: "char-header-bulma",  glow: "rgba(206,147,216,0.3)" },
 };
 
 const DOT_COLORS: Record<string, string> = {
-  vegeta: "#4d90fe", goku: "#ffa726", gohan: "#66bb6a", bulma: "#ce93d8",
+  roshi:  "#ff6d00", goku: "#ffa726", gohan: "#66bb6a", bulma: "#ce93d8",
 };
 
 type ViewMode = "month" | "week";

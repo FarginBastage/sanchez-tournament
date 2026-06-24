@@ -8,11 +8,11 @@ import { useState } from "react";
 function toISODate(d: Date) { return d.toISOString().split("T")[0]; }
 
 const MEMBER_COLORS: Record<string, string> = {
-  vegeta: "#1565c0", goku: "#f57f17", gohan: "#2e7d32", bulma: "#7b1fa2",
+  roshi:  "#e65100", goku: "#f57f17", gohan: "#2e7d32", bulma: "#7b1fa2",
 };
 
 const CHARACTER_LABELS: Record<string, string> = {
-  vegeta: "Prince Vegeta", goku: "Goku", gohan: "Gohan", bulma: "Bulma",
+  roshi:  "Master Roshi", goku: "Goku", gohan: "Gohan", bulma: "Bulma",
 };
 
 type Period = "week" | "month" | "alltime";

@@ -68,11 +68,20 @@ try {
 const existingMembers = db.select().from(members).all();
 if (existingMembers.length === 0) {
   db.insert(members).values([
-    { name: "Jesse", character: "vegeta", color: "#1565c0", emoji: "👑" },
+    { name: "Jesse", character: "roshi", color: "#e65100", emoji: "🐢" },
     { name: "Angela", character: "bulma", color: "#7b1fa2", emoji: "💡" },
     { name: "Jude", character: "gohan", color: "#2e7d32", emoji: "⚡" },
     { name: "David", character: "goku", color: "#f57f17", emoji: "🔥" },
   ]).run();
+} else {
+  // Migrate Jesse from vegeta → roshi if needed
+  const jesse = existingMembers.find(m => m.name === "Jesse");
+  if (jesse && jesse.character === "vegeta") {
+    db.update(members)
+      .set({ character: "roshi", color: "#e65100", emoji: "🐢" })
+      .where(eq(members.id, jesse.id))
+      .run();
+  }
 }
 
 export interface IStorage {

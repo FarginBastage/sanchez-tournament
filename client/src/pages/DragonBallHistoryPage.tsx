@@ -16,18 +16,18 @@ function getWeekStart(d: Date): Date {
 }
 
 const MEMBER_COLORS: Record<string, string> = {
-  vegeta: "#4d90fe", goku: "#ffa726", gohan: "#66bb6a", bulma: "#ce93d8",
+  roshi:  "#ff6d00", goku: "#ffa726", gohan: "#66bb6a", bulma: "#ce93d8",
 };
 
 const MEMBER_GLOWS: Record<string, string> = {
-  vegeta: "rgba(77,144,254,0.25)",
+  roshi:  "rgba(255,109,0,0.25)",
   goku:   "rgba(255,167,38,0.25)",
   gohan:  "rgba(102,187,106,0.25)",
   bulma:  "rgba(206,147,216,0.25)",
 };
 
 const MEMBER_HEADERS: Record<string, string> = {
-  vegeta: "char-header-vegeta",
+  roshi:  "char-header-roshi",
   goku:   "char-header-goku",
   gohan:  "char-header-gohan",
   bulma:  "char-header-bulma",
