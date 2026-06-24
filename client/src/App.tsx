@@ -2,6 +2,7 @@ import { Switch, Route, Router, Link, useLocation } from "wouter";
 import { useHashLocation } from "wouter/use-hash-location";
 
 import TodayPage from "./pages/TodayPage";
+import CharacterBiosPage from "./pages/CharacterBiosPage";
 import SplashPage from "./pages/SplashPage";
 import CalendarPage from "./pages/CalendarPage";
 import ComparisonPage from "./pages/ComparisonPage";
@@ -9,7 +10,7 @@ import ChatPage from "./pages/ChatPage";
 import SettingsPage from "./pages/SettingsPage";
 import DragonBallHistoryPage from "./pages/DragonBallHistoryPage";
 import { useEffect, useState } from "react";
-import { Home, Calendar, BarChart2, MessageSquare, Settings, Sparkles, Sun, Moon } from "lucide-react";
+import { Home, Calendar, BarChart2, MessageSquare, Settings, Sparkles, Sun, Moon, Users } from "lucide-react";
 import { createContext, useContext } from "react";
 import { unlockAudio } from "./lib/sounds";
 
@@ -23,6 +24,7 @@ const NAV_LINKS = [
   { href: "/comparison", icon: BarChart2,      label: "Standings" },
   { href: "/balls",      icon: Sparkles,       label: "Balls"     },
   { href: "/chat",       icon: MessageSquare,  label: "Chat"      },
+  { href: "/fighters",   icon: Users,          label: "Fighters"  },
   { href: "/settings",   icon: Settings,       label: "Edit"      },
 ];
 
@@ -32,6 +34,7 @@ const SIDEBAR_LINKS = [
   { href: "/comparison", icon: BarChart2,      label: "Standings"        },
   { href: "/balls",      icon: Sparkles,       label: "Dragon Balls"     },
   { href: "/chat",       icon: MessageSquare,  label: "Chat"             },
+  { href: "/fighters",   icon: Users,          label: "Fighter Profiles" },
   { href: "/settings",   icon: Settings,       label: "Edit Assignments" },
 ];
 
@@ -170,6 +173,7 @@ export default function App() {
               <Route path="/comparison" component={ComparisonPage}       />
               <Route path="/balls"      component={DragonBallHistoryPage} />
               <Route path="/chat"       component={ChatPage}             />
+              <Route path="/fighters"   component={CharacterBiosPage}    />
               <Route path="/settings"   component={SettingsPage}         />
             </Switch>
           </main>
