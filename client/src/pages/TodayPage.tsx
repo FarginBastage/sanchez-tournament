@@ -13,10 +13,10 @@ import { fireConfetti } from "../lib/confetti";
 
 // Map member name (lowercase) to their photo
 const MEMBER_PHOTOS: Record<string, string> = {
-  jesse:  "/jesse.jpeg",
-  angela: "/angela.jpeg",
-  jude:   "/jude.jpeg",
-  david:  "/david.jpeg",
+  jesse:  "jesse.jpeg",
+  angela: "angela.jpeg",
+  jude:   "jude.jpeg",
+  david:  "david.jpeg",
 };
 
 const CHAR_STYLES: Record<string, { headerClass: string; text: string; border: string; accent: string; glow: string }> = {
