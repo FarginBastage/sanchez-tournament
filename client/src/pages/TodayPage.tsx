@@ -11,6 +11,14 @@ import { SosSummon } from "../components/SosSummon";
 import { showNotification, getNotificationPermission, requestNotificationPermission } from "../lib/notifications";
 import { fireConfetti } from "../lib/confetti";
 
+// Map member name (lowercase) to their photo
+const MEMBER_PHOTOS: Record<string, string> = {
+  jesse:  "/jesse.jpeg",
+  angela: "/angela.jpeg",
+  jude:   "/jude.jpeg",
+  david:  "/david.jpeg",
+};
+
 const CHAR_STYLES: Record<string, { headerClass: string; text: string; border: string; accent: string; glow: string }> = {
   roshi:  { headerClass: "char-header-roshi",  text: "text-orange-100", border: "border-orange-500/60", accent: "#ff6d00", glow: "rgba(255,109,0,0.35)" },
   goku:   { headerClass: "char-header-goku",   text: "text-amber-100",  border: "border-amber-400/60",  accent: "#ffa726", glow: "rgba(255,167,38,0.35)" },
@@ -525,7 +533,26 @@ export default function TodayPage() {
               {/* Header */}
               <div className={`${style.headerClass} px-4 py-3 flex items-center justify-between`}>
                 <div className="flex items-center gap-3">
-                  <span className="text-2xl">{member.emoji}</span>
+                  {/* Photo avatar with emoji badge */}
+                  <div className="relative flex-shrink-0">
+                    {MEMBER_PHOTOS[member.name.toLowerCase()] ? (
+                      <div className="w-12 h-12 rounded-full overflow-hidden"
+                        style={{
+                          border: `2px solid ${style.accent}`,
+                          boxShadow: `0 0 10px ${style.glow}`,
+                        }}>
+                        <img
+                          src={MEMBER_PHOTOS[member.name.toLowerCase()]}
+                          alt={member.name}
+                          className="w-full h-full object-cover object-top"
+                        />
+                      </div>
+                    ) : (
+                      <span className="text-2xl">{member.emoji}</span>
+                    )}
+                    {/* Emoji badge */}
+                    <span className="absolute -bottom-1 -right-1 text-sm leading-none">{member.emoji}</span>
+                  </div>
                   <div>
                     <div className={`font-black text-base ${style.text}`}>{member.name}</div>
                     <div className={`text-xs opacity-60 ${style.text}`}>{CHARACTER_TITLES[member.character]}</div>
