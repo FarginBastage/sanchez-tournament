@@ -71,7 +71,7 @@ export default function SplashPage({ onDone }: SplashPageProps) {
               boxShadow: "0 0 0 2px #e65100, 0 0 40px rgba(251,191,36,0.5), 0 0 80px rgba(255,109,0,0.4)",
             }}>
             <img
-              src="jesse.jpeg"
+              src="jesse-roshi.jpeg"
               alt="Jesse — Master Roshi, The Turtle Hermit"
               className="w-full h-full object-cover object-top"
               style={{ filter: "contrast(1.1) saturate(1.1)" }}
